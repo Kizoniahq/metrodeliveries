@@ -1,0 +1,12 @@
+//= require jquery
+//= require tether.min
+//= require bootstrap.min
+//= require rails-ujs
+// Vendor Files
+//= require jquery.slimscroll
+//= require waves
+//= require sidebarmenu
+//= require sticky-kit.min
+//= require custom.min
+//= require jquery.flot
+//= require jquery.flot.tooltip.min

@@ -1,0 +1,60 @@
+
+<%= render 'shared/slider' %>
+<% if notice %>
+<div class="container" style="position:absolute; top:100px; left:210px; z-index:9999999;">
+  <div class="col-md-8 col-md-offset-2">
+<div class="alert alert-success fade in">
+   <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <p><%= notice %> </p>
+</div>
+</div>
+  </div>
+  <% elsif alert %>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger fade in">
+         <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <p><%= alert %></p>
+      </div>
+    </div>
+  </div>
+      <% end %>
+<%= render 'shared/body' %>
+
+
+<%= javascript_include_tag "jquery.flexslider" %>
+<script type="text/javascript">
+  $(function(){
+    SyntaxHighlighter.all();
+      });
+      $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+    });
+  });
+</script>
+
+  			<script>
+						var win = $(window),
+							foo = $('#typer');
+
+						foo.typer(['International Cargo and Shipments ', 'YOUR NAVIGATOR IN THE TRADE WORLD', 'QUALITY SERVICE AFFORDABLE PRICE']);
+
+						// unneeded...
+						win.resize(function(){
+							var fontSize = Math.max(Math.min(win.width() / (1 * 10), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY));
+
+							foo.css({
+								fontSize: fontSize * .8 + 'px'
+							});
+						}).resize();
+					</script>
+
+          <%= javascript_include_tag 'jquery.waypoints.min' %>
+          <%= javascript_include_tag 'jquery.countup.js' %>
+					<script>
+						$('.counter').countUp();
+					</script>

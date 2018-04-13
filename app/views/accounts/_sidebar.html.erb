@@ -1,0 +1,39 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li>
+                    <%= link_to root_path, class: "waves-effect" do %>
+                      <i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>
+                      Dashboard
+                      <%end %>
+                </li>
+                <li>
+                    <%= link_to edit_user_registration_path  class: "waves-effect" do %>
+                    <i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to orders_path,  class: "waves-effect" do %>
+                    <i class="fa fa-shopping-cart m-r-10" aria-hidden="true"></i>Orders & Shipments
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to payments_path,  class: "waves-effect" do %>
+                      <i class="fa fa-credit-card m-r-10" aria-hidden="true"></i> payments
+                      <% end %>
+                </li>
+                <li>
+                    <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect" do %>
+                    <i class="fa fa-sign-out m-r-10" aria-hidden="true"></i>Log out<%end%>
+                </li>
+
+            </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

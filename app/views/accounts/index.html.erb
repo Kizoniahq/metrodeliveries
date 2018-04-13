@@ -1,0 +1,58 @@
+<div class="row page-titles">
+    <div class="col-md-6 col-8 align-self-center">
+        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </div>
+    <div class="col-md-6 col-4 align-self-center">
+      <% if notice %>
+        <a  class="btn pull-right hidden-sm-down btn-success"> <p><%= notice %> </p></a>
+        <div class="alert alert-success fade in">
+           <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <p><%= notice %> </p>
+        </div>
+        <% elsif alert %>
+
+            <div class="alert alert-danger fade in">
+               <a href="#" class="close" data-dismiss="alert">&times;</a>
+              <p><%= alert %></p>
+            </div>
+
+            <% end %>
+    </div>
+
+</div>
+<div class="row">
+    <!-- Column -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Order & Shipment</h4>
+                <div class="text-right">
+                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> <%= Order.where(user_id: current_user).count %></h2>
+                  <%= link_to orders_path do %>  <span class="text-muted">Track Orders </span> <% end %>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Account Funds</h4>
+                <div class="text-right">
+                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i>Funded <%= Payment.where(user_id: current_user).count %> Times</h2>
+                  <%= link_to payments_path do %>  <span class="text-muted">Manage Funds</span> <%end%>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>

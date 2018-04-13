@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  paid: false
+  shipment_fee: MyString
+  weight: 1
+  user: one
+
+two:
+  type: 
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  paid: false
+  shipment_fee: MyString
+  weight: 1
+  user: two

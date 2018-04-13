@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Metrodeliveries || Account</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="International shipping, cargo delivery" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+  function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+  <%= stylesheet_link_tag    'accounts', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'accounts', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+  <div id="main-wrapper">
+
+    <%= render "accounts/header" %>
+    <%= render "accounts/sidebar" %>
+    <div class="page-wrapper">
+      <div class="container-fluid">
+        <div class="row page-titles">
+          <div class="col-md-6 col-8 align-self-center">
+            <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+          <div class="col-md-6 col-4 align-self-center">
+            <% if notice %>
+            <div class="alert alert-success  alert-dismissible fade show " role="alert">
+              <h4 class="alert-heading">Well done!</h4>
+              <p><%= notice %> </p>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+            <% elsif alert %>
+            <h4 class="alert-heading">OOPS!</h4>
+
+            <div class="alert alert-danger alert-dismissible fade show " role="alert">
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
+              <p><%= alert %></p>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <% end %>
+          </div>
+        </div>
+
+        <!-- banner -->
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
