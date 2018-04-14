@@ -20,7 +20,7 @@ class PaymentsController < InheritedResources::Base
   # POST /payments.json
   def create
   @payment = current_user.payments.build(payment_params)
-
+   @payment.user_id = current_user.id
   respond_to do |format|
     if @payment.save
       user = User.find_by_id(@payment.user_id)
@@ -40,9 +40,9 @@ class PaymentsController < InheritedResources::Base
     def set_payment
       @payment = Payment.find(params[:id])
     end
-  private
+
 
     def payment_params
-      params.require(:payment).permit(:amount, :first_name, :last_name, :payment_method, :payment_id, :user_id, :email)
+      params.require(:payment).permit(:amount, :first_name, :last_name, :payment_method, :payment_id, :user_id, :email, :order_id)
     end
 end

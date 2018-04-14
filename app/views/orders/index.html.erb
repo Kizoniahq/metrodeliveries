@@ -1,10 +1,4 @@
 
-<div class="row">
-  <div class="col-md-6 col-4 align-self-center">
-      <%= link_to new_order_path, class: "btn pull-right hidden-sm-down btn-success" do %> Place an Order<% end %>>
-  </div>
-</div>
-
 <% if Order.where(user_id: current_user).exists? %>
 <div class="row">
   <div class="col-sm-12">

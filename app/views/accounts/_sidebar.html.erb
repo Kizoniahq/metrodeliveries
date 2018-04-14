@@ -21,6 +21,11 @@
                     <% end %>
                 </li>
                 <li>
+                    <%= link_to new_order_path,  class: "waves-effect" do %>
+                    <i class="fa fa-shopping-cart m-r-10" aria-hidden="true"></i>Send A Package
+                    <% end %>
+                </li>
+                <li>
                     <%= link_to new_payment_path,  class: "waves-effect" do %>
                       <i class="fa fa-credit-card m-r-10" aria-hidden="true"></i> payments
                       <% end %>
