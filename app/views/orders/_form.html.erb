@@ -5,7 +5,7 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-6">
-        <%= f.input :method, :as => :select, collection: ["EMERGENCY/EXPEDITED SHIPPING ", "LTL/GROUND FREIGHT", "AIR RIDE BLANKET WRAP TRUCKING", "INTERNATIONAL SHIPPING SERVICES", "WHITE GLOVE SERVICES"], class: "form-control form-control-line" %>
+        <%= f.input :method, :as => :select, collection: ["EMERGENCY/EXPEDITED SHIPPING ", "LTL/GROUND FREIGHT", "AIR RIDE BLANKET WRAP TRUCKING", "INTERNATIONAL SHIPPING SERVICES", "WHITE GLOVE SERVICES"], selected: "INTERNATIONAL SHIPPING SERVICES", class: "form-control form-control-line" %>
       </div>
       <div class="col-md-6">
         <%= f.input :weight, placeholder: "package size in kg", class: "form-control form-control-line" %>
