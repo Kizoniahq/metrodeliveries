@@ -9,7 +9,7 @@ form do |f|
 
     f.inputs do
     f.input :user_id, :label => 'Users', :as => :select, :collection => User.all.map{|u| ["#{u.email}", u.id]}
-    f.input :order_id, :label => 'order', :as => :select, :collection => Order.all.map{|u| ["#{u.tracking}, #{u.name} ", u.id]}
+    f.input :order_id, :label => 'order', :as => :select, :collection => Order.all.map{|u| ["#{u.tracking}, #{u.first_name} ", u.id]}
 
       f.input :location
       f.input :status
