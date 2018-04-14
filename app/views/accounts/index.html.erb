@@ -40,7 +40,6 @@
             <thead>
               <tr>
                 <th>Tracking number</th>
-                  <th>Type of delivery</th>
                   <th>Reciver</th>
                 <th>Address</th>
                 <th>City</th>
@@ -56,12 +55,10 @@
               <% @orders.each do |o| %>
               <tr>
                 <td><%= o.tracking %></td>
-                <td><%= o.method %></td>
                 <td><%= o.first_name %></td>
                 <td><%= o.address %></td>
                 <td><%= o.city %></td>
                 <td><%= o.state%></td>
-
                 <td><%= o.country %></td>
                 <td><%= o.created_at.strftime("%d-%b-%Y") %></td>
 
