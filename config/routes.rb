@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :payments
-  resources :orders
+  resources :orders do
+    resource :locations
+  end
   resources :accounts, only: [:index]
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config

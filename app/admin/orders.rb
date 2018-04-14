@@ -2,7 +2,7 @@ ActiveAdmin.register Order do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :type, :address, :city, :state, :country, :paid, :shipment_fee, :weight, :user_id, :delivery_status, :tracking
+ permit_params :type, :address, :slug, :city, :state, :country, :paid, :shipment_fee, :weight, :user_id, :delivery_status, :tracking
 #
 # or
 #

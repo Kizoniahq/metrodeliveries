@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
+  has_many :locations
   extend FriendlyId
   friendly_id :tracking, use: :slugged
    has_many :payments

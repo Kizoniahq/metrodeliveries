@@ -2,7 +2,7 @@ ActiveAdmin.register Payment do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+ permit_params :amount, :first_name, :last_name, :payment_method, :payment_id, :user_id, :email, :order_id
 #
 # or
 #

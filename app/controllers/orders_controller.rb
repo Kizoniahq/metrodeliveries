@@ -42,7 +42,7 @@ end
     @order = Order.friendly.find(params[:id])
   end
     def order_params
-      params.require(:order).permit(:method, :address, :city, :state, :country, :paid, :shipment_fee, :weight, :user_id, :delivery_status, :tracking, :first_name, :last_name, :phone, :email)
+      params.require(:order).permit(:method, :address, :city, :state, :country, :paid, :shipment_fee, :weight, :user_id, :delivery_status, :tracking, :first_name, :last_name, :phone, :email, :slug)
     end
 
 end

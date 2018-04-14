@@ -1,0 +1,14 @@
+<thead>
+  <tr>
+    <th>Package location</th>
+    <th>Time And Date </th>
+      <th>Package Status</th>
+
+  </tr>
+</thead>
+  <tbody>
+    <tr>
+      <td><%= location.location %></td>
+      <td><%= location.created_at.strftime("%d-%b-%Y") %></td>
+      <td><%= location.status %></td>
+    </tbody>
