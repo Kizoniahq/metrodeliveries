@@ -27,7 +27,7 @@ respond_to do |format|
     user = User.find_by_id(@order.user_id)
     order = @order
     OrderMailer.order_email(user, order).deliver
-    format.html { redirect_to new_payment_path, notice: 'order was successfully created.' }
+    format.html { redirect_to new_payment_path, notice: 'order was successfully booked and details sent to your mail, Awaiting Payment.' }
     format.json { render :show, status: :created, location: @order }
   else
     format.html { render :new }

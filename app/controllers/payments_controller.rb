@@ -25,8 +25,8 @@ class PaymentsController < InheritedResources::Base
     if @payment.save
       user = User.find_by_id(@payment.user_id)
       payment = @payment
-      paymentMailer.payment_email(user, payment).deliver
-      format.html { redirect_to root_path, notice: 'We have reicived your payment request we will contact you soon.' }
+      PaymentMailer.payment_email(user, payment).deliver
+      format.html { redirect_to root_path, notice: 'We have received your payment request we will contact you soon.' }
       format.json { render :show, status: :created, location: @payment }
     else
       format.html { render :new }
