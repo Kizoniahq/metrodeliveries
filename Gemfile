@@ -28,7 +28,6 @@ gem 'sitemap_generator'
 gem 'social-share-button', '~> 0.1.6'
 gem 'activeadmin', github: 'activeadmin'
 gem "active_material", github: "vigetlabs/active_material"
-gem 'pg', '~> 0.18'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -47,6 +46,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pg', '~> 0.18'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413142249) do
+ActiveRecord::Schema.define(version: 20180414012608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180413142249) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "type"
+    t.string "method"
     t.string "address"
     t.string "city"
     t.string "state"
@@ -61,6 +61,10 @@ ActiveRecord::Schema.define(version: 20180413142249) do
     t.string "tracking"
     t.string "delivery_status"
     t.string "slug"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
     t.index ["slug"], name: "index_orders_on_slug", unique: true
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -88,6 +92,13 @@ ActiveRecord::Schema.define(version: 20180413142249) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"

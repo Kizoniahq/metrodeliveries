@@ -31,22 +31,23 @@
           <div class="col-md-6 col-4 align-self-center">
             <% if notice %>
             <div class="alert alert-success  alert-dismissible fade show " role="alert">
-              <h4 class="alert-heading">Well done!</h4>
-              <p><%= notice %> </p>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              <h4 class="alert-heading">Well done!</h4>
+              <p><%= notice %> </p>
+
 
             </div>
             <% elsif alert %>
             <h4 class="alert-heading">OOPS!</h4>
 
             <div class="alert alert-danger alert-dismissible fade show " role="alert">
-              <a href="#" class="close" data-dismiss="alert">&times;</a>
-              <p><%= alert %></p>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+                            <p><%= alert %></p>
+              
             </div>
 
             <% end %>

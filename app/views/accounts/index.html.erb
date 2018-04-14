@@ -1,58 +1,100 @@
-<div class="row page-titles">
-    <div class="col-md-6 col-8 align-self-center">
-        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-    </div>
-    <div class="col-md-6 col-4 align-self-center">
-      <% if notice %>
-        <a  class="btn pull-right hidden-sm-down btn-success"> <p><%= notice %> </p></a>
-        <div class="alert alert-success fade in">
-           <a href="#" class="close" data-dismiss="alert">&times;</a>
-          <p><%= notice %> </p>
-        </div>
-        <% elsif alert %>
 
-            <div class="alert alert-danger fade in">
-               <a href="#" class="close" data-dismiss="alert">&times;</a>
-              <p><%= alert %></p>
-            </div>
-
-            <% end %>
-    </div>
-
-</div>
 <div class="row">
-    <!-- Column -->
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-block">
-                <h4 class="card-title">Order & Shipment</h4>
-                <div class="text-right">
-                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> <%= Order.where(user_id: current_user).count %></h2>
-                  <%= link_to orders_path do %>  <span class="text-muted">Track Orders </span> <% end %>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
+  <!-- Column -->
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Order & Shipment</h4>
+        <div class="text-right">
+          <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> <%= Order.where(user_id: current_user).count %></h2>
+          <%= link_to orders_path do %>  <span class="btn btn-primary">Track Orders </span> <% end %>
         </div>
-    </div>
-    <!-- Column -->
-    <!-- Column -->
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-block">
-                <h4 class="card-title">Account Funds</h4>
-                <div class="text-right">
-                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i>Funded <%= Payment.where(user_id: current_user).count %> Times</h2>
-                  <%= link_to payments_path do %>  <span class="text-muted">Manage Funds</span> <%end%>
-                </div>
 
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <!-- Column -->
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Account Funds</h4>
+        <div class="text-right">
+          <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i>Funded <%= Payment.where(user_id: current_user).count %> Times</h2>
+          <%= link_to payments_path do %>  <span class="text-muted">Manage Funds</span> <%end%>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+</div>
+<% if Order.where(user_id: current_user).exists? %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Recent Shipments</h4>
+        <div class="table-responsive">
+          <table class="table stylish-table">
+            <thead>
+              <tr>
+                <th>Tracking number</th>
+                  <th>Type of delivery</th>
+                  <th>Reciver</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Destination Country</th>
+                <th>Shipped Date</th>
+                <th>Order Status</th>
+                <th>Delivery status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |o| %>
+              <tr>
+                <td><%= o.tracking %></td>
+                <td><%= o.method %></td>
+                <td><%= o.first_name %></td>
+                <td><%= o.address %></td>
+                <td><%= o.city %></td>
+                <td><%= o.state%></td>
+
+                <td><%= o.country %></td>
+                <td><%= o.created_at.strftime("%d-%b-%Y") %></td>
+
+                <td><% if o.paid? %> Paid <% else %>Pending... <%end %></td>
+                <td><%= o.delivery_status %></td>
+                <td><%= link_to o, class: "btn btn-success" do %>
+                  <i class="fa fa-envelope-open"></i> View
+                  <% end %>
+                </td>
+              </tr>
+
+
+              <%end %>
+            </tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% else %>
+<div class="row">
+    <div class="col-12">
+        <div class="card mt-5 mb-5 pb-5 pt-5">
+            <div class="card-block text-center">
+              You dont have an orders yet?.<br />
+              <p class"text-center mb-4"><%= link_to new_order_path, class: "btn btn-lg btn-success" do %>
+                <i class="fa fa-shopping-cart"></i>  Start A Shipment Now
+                <% end %>
+              </p>
             </div>
         </div>
     </div>
-    <!-- Column -->
 </div>
+<% end %>

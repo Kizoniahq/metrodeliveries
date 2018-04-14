@@ -1,43 +1,70 @@
-<p id="notice"><%= notice %></p>
+<% if Order.where(user_id: current_user).exists? %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Recent Shipments</h4>
+        <div class="table-responsive">
+          <table class="table stylish-table">
+            <thead>
+              <tr>
+                <th>Tracking number</th>
+                  <th>Type of delivery</th>
+                  <th>Package Weight</th>
+                  <th>Reciver</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Destination Country</th>
+                <th>Shipped Date</th>
+                <th>Order Status</th>
+                <th>Delivery status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @orders.each do |o| %>
+              <tr>
+                <td><%= o.tracking %></td>
+                <td><%= o.method %></td>
+                <td><%= o.weight %></td>
+                <td><%= o.first_name %></td>
+                <td><%= o.address %></td>
+                <td><%= o.city %></td>
+                <td><%= o.state%></td>
+                <td><%= o.country %></td>
+                <td><%= o.created_at.strftime("%d-%b-%Y") %></td>
 
-<h1>Orders</h1>
+                <td><% if o.paid? %> Paid <% else %>Pending... <%end %></td>
+                <td><%= o.delivery_status %></td>
+                <td><%= link_to o, class: "btn btn-success" do %>
+                  <i class="fa fa-envelope-open"></i> View
+                  <% end %>
+                </td>
+              </tr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Country</th>
-      <th>Paid</th>
-      <th>Shipment fee</th>
-      <th>Weight</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.type %></td>
-        <td><%= order.address %></td>
-        <td><%= order.city %></td>
-        <td><%= order.state %></td>
-        <td><%= order.country %></td>
-        <td><%= order.paid %></td>
-        <td><%= order.shipment_fee %></td>
-        <td><%= order.weight %></td>
-        <td><%= order.user %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+              <%end %>
+            </tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% else %>
+<div class="row">
+    <div class="col-12">
+        <div class="card mt-5 mb-5 pb-5 pt-5">
+            <div class="card-block text-center">
+              You dont have an orders yet?.<br />
+              <p class"text-center mb-4"><%= link_to new_order_path, class: "btn btn-lg btn-success" do %>
+                <i class="fa fa-shopping-cart"></i>  Start A Shipment Now
+                <% end %>
+              </p>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

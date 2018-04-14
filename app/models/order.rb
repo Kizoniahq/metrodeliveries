@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   extend FriendlyId
   friendly_id :tracking, use: :slugged
-
+   has_many :payments
   validates :user, presence: true
   before_validation :load_defaults
 

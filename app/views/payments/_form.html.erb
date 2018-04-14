@@ -1,18 +1,35 @@
 
-<%= simple_form_for(@payment) do |f| %>
+<%= simple_form_for(@payment, html: { class: "form-horizontal form-material"}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :amount %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :payment_method %>
-    <%= f.input :order_id %>
-    <%= f.input :user_id %>
-    <%= f.input :email %>
+    <%= f.input :order_id, :as => :select, :collection => Order.where(user_id: current_user).map{|c| ["#{c.tracking}, #{c.first_name}", c.id]} %>
+    <div class="row">
+      <div class="col-sm-6">
+    <%= f.input :amount, class: "form-control form-control-line"%>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="col-sm-6">
+      <%= f.input :payment_method, as: :select, :collection => ["Moneygram", "Western Union", "Bitcoin", "Paypal", "Gift Cards"], class: "form-control form-control-line" %>
+
+  </div>
+</div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :first_name, class: "form-control form-control-line" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.input :last_name, class: "form-control form-control-line" %>
+      </div>
+    </div>
+
+  <%= f.input :email, class: "form-control form-control-line" %>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-6">
+      <%= f.button :submit, class: "btn btn-success mb-5 text-center" %>
+
+    </div>
   </div>
 <% end %>
