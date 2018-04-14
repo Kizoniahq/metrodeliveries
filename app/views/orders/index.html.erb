@@ -1,3 +1,10 @@
+
+<div class="row">
+  <div class="col-md-6 col-4 align-self-center">
+      <%= link_to new_order_path, class: "btn pull-right hidden-sm-down btn-success" do %> Place an Order<% end %>>
+  </div>
+</div>
+
 <% if Order.where(user_id: current_user).exists? %>
 <div class="row">
   <div class="col-sm-12">
@@ -9,7 +16,6 @@
             <thead>
               <tr>
                 <th>Tracking number</th>
-                  <th>Type of delivery</th>
                   <th>Package Weight</th>
                   <th>Reciver</th>
                 <th>Address</th>
@@ -26,7 +32,6 @@
               <% @orders.each do |o| %>
               <tr>
                 <td><%= o.tracking %></td>
-                <td><%= o.method %></td>
                 <td><%= o.weight %></td>
                 <td><%= o.first_name %></td>
                 <td><%= o.address %></td>
