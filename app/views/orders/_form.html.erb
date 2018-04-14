@@ -4,10 +4,31 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-6">
-        <%= f.input :method, :as => :select, collection: ["EMERGENCY SHIPPING ", "GROUND FREIGHT", "AIR RIDE BLANKET WRAP TRUCKING", "INTERNATIONAL SHIPPING SERVICES", "WHITE GLOVE SERVICES"], selected: "INTERNATIONAL SHIPPING SERVICES", class: "form-control form-control-line" %>
+      <div class="col-sm-12">
+        <p class="text-info"> Reciver's Information</p>
       </div>
-      <div class="col-md-6">
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :first_name, class: "form-control form-control-line" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.input :last_name, class: "form-control form-control-line" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :email, class: "form-control form-control-line" %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.input :phone, class: "form-control form-control-line" %>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <%= f.input :weight, placeholder: "package size in kg", class: "form-control form-control-line" %>
       </div>
 
@@ -271,29 +292,7 @@
         <%= f.input :state, required: true, autofocus: true, class: "form-control form-control-line"  %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <p class="text-info"> Reciver's Information</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.input :first_name, class: "form-control form-control-line" %>
-      </div>
-      <div class="col-sm-6">
-        <%= f.input :last_name, class: "form-control form-control-line" %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <%= f.input :email, class: "form-control form-control-line" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.input :phone, class: "form-control form-control-line" %>
-    </div>
-  </div>
 
 
   <div class="row ">
