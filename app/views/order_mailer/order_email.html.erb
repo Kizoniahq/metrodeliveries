@@ -143,7 +143,7 @@
                         </tr>
                         <tr>
                           <td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="center" style="font:bold 16px/25px Arial, Helvetica, sans-serif; color:#888; padding:0 0 23px;">
-                              Hi  You made an order to send to  </br> <%= @order.first name %> <%= @order.last_name %>
+                              Hi <%= @user.first_name %> You made an order to send to  </br> <%= @order.first_name %> <%= @order.last_name %>
                             </br>
                             Here is you package tracking number</br>
                             <strong><%= @order.tracking %></strong> </br>
